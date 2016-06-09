@@ -20,10 +20,10 @@ using namespace std;
 class Department	// Класс Департамент
 {
 	string name_dep;
-	vector <Worker*> workers;
+	vector <Worker*> workers;	/// Необходим для работы с именами сотрудников
 public:
 	Department() {}
-	Department(string n) : name_dep(n) {}
+	Department(string n) : name_dep(n) {}	/// Параметр "имя подразделения"
 
 	string get_dep()
 	{
@@ -45,7 +45,7 @@ public:
 	{
 		workers.erase(workers.begin() + i);
 	}
-	int get_dep_size()
+	int get_dep_size()	/// Количество рабочих в департаменте
 	{
 		return workers.size();
 	}

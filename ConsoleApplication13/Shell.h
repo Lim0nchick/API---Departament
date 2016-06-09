@@ -1,6 +1,6 @@
 ﻿/** 
 	@file
-	@brief Файл класса Shell
+	@brief Файл класса-оболочки Shell
 	@author Lim0nchick
 	@version 1.0
 	@date Июнь 2016 года
@@ -19,24 +19,24 @@ using namespace std;
 
 class Shell
 {
-	vector <Worker> workers;
-	vector <Department> departs;
+	vector <Worker> workers;	/// Вектор класса рабочий
+	vector <Department> departs;	/// Вектор класса подразделение
 
 public:
-	Shell() {}
-	Shell(const Shell& o)
+	Shell() {}			/// Создание подразделения без параметров
+	Shell(const Shell& o)		/// Создание подразделения c параметром 
 	{
 		// TO-DO: Construcor 
 	}
 
-	void addemp()	// Добавление нового сотрудника
+	void addemp()	/// Добавление нового сотрудника
 	{
 		string n;
 		cout << "Enter worker name:";
 		cin >> n;
 		workers.push_back(Worker(n));
 	}
-	void listemp()	// Вывод списка сотрудникова
+	void listemp()	/// Вывод списка сотрудников
 	{
 		cout << "Workers: \n";
 		for (int i = 0; i < workers.size(); i++)
@@ -45,7 +45,7 @@ public:
 		}
 	}
 
-	void delemp()	// Увольнение сотрудника
+	void delemp()	/// Увольнение сотрудника
 	{
 		string n;
 		cout << "Enter worker name:";
@@ -71,7 +71,7 @@ public:
 			}
 		}
 	}
-	void add_Department()
+	void add_Department()	/// Добавление подразделения
 	{
 		string n;
 		cout << "Enter name of Department:";
@@ -79,7 +79,7 @@ public:
 		departs.push_back(Department(n));
 
 	}
-	void del_Department()
+	void del_Department()	/// Удаление подразделения
 	{
 		Department D;
 		string n;
@@ -94,7 +94,7 @@ public:
 			}
 		}
 	}
-	void list_Department()
+	void list_Department()	/// Список подразделений
 	{
 		cout << "Departments: \n";
 		for (int i = 0; i < departs.size(); i++)
@@ -102,7 +102,7 @@ public:
 			cout << departs[i].get_dep() << " " << endl;
 		}
 	}
-	void add_worker_dep()
+	void add_worker_dep()	/// Добавление сотрудника в подразделение
 	{
 		string n;
 		int a = -1;
@@ -138,7 +138,7 @@ public:
 
 		departs[b].add_worker(&workers[a]);
 	}
-	void list_dep_worker()
+	void list_dep_worker()	/// Список работников департамента
 	{
 		string n;
 		int b = -1;
@@ -163,7 +163,7 @@ public:
 		}
 
 	}
-	void search_worker_dep()
+	void search_worker_dep()	/// Поиск сотрудника в департаменте
 	{
 		string n;
 		int a = -1;
@@ -182,17 +182,19 @@ public:
 			cout << "Worker not found" << endl;
 			return;
 		}
-		for (int i = 0; i < departs.size(); i++) {
+		for (int i = 0; i < departs.size(); i++)
+		{
 
 			for (int j = 0; j < departs[i].get_dep_size(); j++)
 			{
-				if (departs[i].get_worker(j)->get_name() == n) {
+				if (departs[i].get_worker(j)->get_name() == n)
+				{
 					cout << "Worker: " << n << " found in the Department: " << departs[i].get_dep() << endl;
 				}
 			}
 		}
 	}
-	void rename_dep()
+	void rename_dep()	/// Переформирование департамента
 	{
 		string n, r;
 		int b = -1;
@@ -215,7 +217,7 @@ public:
 		}
 
 	}
-	void move_worker_dep()
+	void move_worker_dep()	/// Перемещение работника между департаментами
 	{
 		string n, e;
 		int a = -1;
@@ -249,11 +251,13 @@ public:
 			return;
 		}
 		int m = 0;
-		for (int i = 0; i < departs.size(); i++) {
+		for (int i = 0; i < departs.size(); i++)
+		{
 
 			for (int j = 0; j < departs[i].get_dep_size(); j++)
 			{
-				if (departs[i].get_worker(j)->get_name() == n) {
+				if (departs[i].get_worker(j)->get_name() == n)
+				{
 					m = i;
 				}
 			}
